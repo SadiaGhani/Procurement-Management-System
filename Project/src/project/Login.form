@@ -38,8 +38,8 @@
                       </Group>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="UName" pref="150" max="32767" attributes="0"/>
-                          <Component id="UPass" max="32767" attributes="0"/>
+                          <Component id="UPass" pref="150" max="32767" attributes="0"/>
+                          <Component id="UName" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">

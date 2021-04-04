@@ -6,6 +6,7 @@
 package project;
 
 import javax.swing.JOptionPane;
+import java.util.*;
 
 /**
  *
@@ -77,8 +78,8 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(UName, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(UPass)))
+                            .addComponent(UPass, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(UName)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(77, 77, 77)
                         .addComponent(exit)
@@ -114,10 +115,25 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_exitActionPerformed
 
     private void SignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignActionPerformed
-        JOptionPane.showMessageDialog(null,"Logged In Successfully!");
+        String username;
+        String password;
+        username = UName.getText();
+        password = UPass.getText();
+        if(username.equals("manager098") && password.equals("manager098"))
+        {
+         JOptionPane.showMessageDialog(null,"Logged In Successfully!");
         Menu m = new Menu();       
         m.setVisible(true);
         this.setVisible(false);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null,"Invalid Login!!\n Try Again('_')");
+
+        }
+        
+        
+    
     }//GEN-LAST:event_SignActionPerformed
 
     /**

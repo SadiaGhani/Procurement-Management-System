@@ -189,6 +189,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Add Employee Data"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EAddActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="EUpdate">
       <Properties>
@@ -197,6 +200,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Update Employee Data"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EUpdateActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="AddAcc">
       <Properties>
@@ -205,6 +211,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Add Accessories"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddAccActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="UAcc">
       <Properties>
@@ -221,6 +230,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Generate Receipt for Employee"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EReceiptActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="CReceipt">
       <Properties>
@@ -229,6 +241,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Receipt Copy For Company"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CReceiptActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Exit">
       <Properties>

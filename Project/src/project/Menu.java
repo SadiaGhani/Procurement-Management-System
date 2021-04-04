@@ -63,21 +63,46 @@ public class Menu extends javax.swing.JFrame {
 
         EAdd.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         EAdd.setText("Add Employee Data");
+        EAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EAddActionPerformed(evt);
+            }
+        });
 
         EUpdate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         EUpdate.setText("Update Employee Data");
+        EUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EUpdateActionPerformed(evt);
+            }
+        });
 
         AddAcc.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         AddAcc.setText("Add Accessories");
+        AddAcc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddAccActionPerformed(evt);
+            }
+        });
 
         UAcc.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         UAcc.setText("Update Accessories");
 
         EReceipt.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         EReceipt.setText("Generate Receipt for Employee");
+        EReceipt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EReceiptActionPerformed(evt);
+            }
+        });
 
         CReceipt.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         CReceipt.setText("Receipt Copy For Company");
+        CReceipt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CReceiptActionPerformed(evt);
+            }
+        });
 
         Exit.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         Exit.setText("Exit");
@@ -214,6 +239,36 @@ public class Menu extends javax.swing.JFrame {
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_ExitActionPerformed
+
+    private void EAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EAddActionPerformed
+       EAdd ad = new EAdd();
+       ad.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_EAddActionPerformed
+
+    private void EUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EUpdateActionPerformed
+       Eupdate Eu = new Eupdate();
+       Eu.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_EUpdateActionPerformed
+
+    private void AddAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddAccActionPerformed
+        AddItem Ai = new AddItem();
+       Ai.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_AddAccActionPerformed
+
+    private void EReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EReceiptActionPerformed
+        EReceipt Er = new EReceipt();
+        Er.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_EReceiptActionPerformed
+
+    private void CReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CReceiptActionPerformed
+          CReceipt Cr = new CReceipt();
+        Cr.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_CReceiptActionPerformed
 
     /**
      * @param args the command line arguments
