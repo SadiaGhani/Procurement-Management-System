@@ -87,6 +87,11 @@ public class Menu extends javax.swing.JFrame {
 
         UAcc.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         UAcc.setText("Update Accessories");
+        UAcc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UAccActionPerformed(evt);
+            }
+        });
 
         EReceipt.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         EReceipt.setText("Generate Receipt for Employee");
@@ -269,6 +274,12 @@ public class Menu extends javax.swing.JFrame {
         Cr.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_CReceiptActionPerformed
+
+    private void UAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UAccActionPerformed
+        UpdateItem Ui = new UpdateItem();
+       Ui.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_UAccActionPerformed
 
     /**
      * @param args the command line arguments
