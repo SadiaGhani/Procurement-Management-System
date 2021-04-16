@@ -5,6 +5,12 @@
  */
 package project;
 
+import java.util.ArrayList;
+import java.util.*;
+import static java.util.Collections.list;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author DELL PC
@@ -14,8 +20,27 @@ public class EAdd extends javax.swing.JFrame {
     /**
      * Creates new form EAdd
      */
+    
     public EAdd() {
         initComponents();
+        addDataToRow();
+    }
+   ArrayList<Employee> list = Project.empl;
+    public void addDataToRow()
+    {
+        list = Project.empl;
+        DefaultTableModel table = (DefaultTableModel) ETable.getModel();
+        Object Data[] = new Object[3];
+        table.setRowCount(0);
+        for(int i=0; i<list.size(); i++)
+        {
+            Data[0] = list.get(i).getName();
+            Data[1] = list.get(i).getEmail();
+            Data[2] = list.get(i).getEcontact();  
+            
+            table.addRow(Data);
+        }
+        
     }
 
     /**
@@ -31,12 +56,15 @@ public class EAdd extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        exit2 = new javax.swing.JButton();
+        reset = new javax.swing.JButton();
         addbtn = new javax.swing.JButton();
         nameField = new javax.swing.JTextField();
         mailField = new javax.swing.JTextField();
         noField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ETable = new javax.swing.JTable();
+        exit = new javax.swing.JButton();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -61,11 +89,11 @@ public class EAdd extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel3.setText("Contact No.");
 
-        exit2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        exit2.setText("Back to Menu");
-        exit2.addActionListener(new java.awt.event.ActionListener() {
+        reset.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        reset.setText("Reset");
+        reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exit2ActionPerformed(evt);
+                resetActionPerformed(evt);
             }
         });
 
@@ -86,6 +114,24 @@ public class EAdd extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
         jLabel4.setText("Add Employee");
 
+        ETable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "Email", "Contact No"
+            }
+        ));
+        jScrollPane1.setViewportView(ETable);
+
+        exit.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        exit.setText("Back");
+        exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -93,34 +139,37 @@ public class EAdd extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addGap(29, 29, 29)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(mailField, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(noField, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(30, 30, 30))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(exit2)
-                                .addGap(80, 80, 80)
-                                .addComponent(addbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(124, 124, 124)
-                        .addComponent(jLabel4)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(mailField, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(noField, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(264, 264, 264)
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(77, 77, 77)
+                                .addComponent(addbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(101, 101, 101)
+                                .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(38, 38, 38)
                 .addComponent(jLabel4)
-                .addGap(43, 43, 43)
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -132,11 +181,14 @@ public class EAdd extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(noField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(exit2)
-                    .addComponent(addbtn))
-                .addGap(56, 56, 56))
+                    .addComponent(reset)
+                    .addComponent(addbtn)
+                    .addComponent(exit))
+                .addGap(90, 90, 90))
         );
 
         pack();
@@ -147,16 +199,47 @@ public class EAdd extends javax.swing.JFrame {
     }//GEN-LAST:event_nameFieldActionPerformed
 
     private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
-        Menu m = new Menu();
-        m.setVisible(true);
-        this.setVisible(false);
+        String En = nameField.getText();
+        String Em = mailField.getText();
+        String Ec = noField.getText();
+        
+        //Employee emp = new Employee();
+        
+        Employee e = new Employee();
+        boolean flag1 = e.setName(En);
+        boolean flag2 = e.setEmail(Em);
+        boolean flag3 = e.setContact(Ec);
+        if(flag1 == true && flag2 == true && flag3 == true )
+        {
+            list.add(e);
+            Project.empl = list;
+            addDataToRow();
+            JOptionPane.showMessageDialog(null, "Employee Added Successfully");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Invalid");
+        }
+        
     }//GEN-LAST:event_addbtnActionPerformed
 
-    private void exit2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit2ActionPerformed
-         Menu m = new Menu();
-        m.setVisible(true);
+    private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
+     JOptionPane.showMessageDialog(null,"All the data will be clear");
+        nameField.setText(" ");
+        mailField.setText(" ");
+        noField.setText(" ");
+        
+        
+       
+    }//GEN-LAST:event_resetActionPerformed
+
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+        // TODO add your handling code here:
         this.setVisible(false);
-    }//GEN-LAST:event_exit2ActionPerformed
+        Menu m = new Menu();
+        m.setVisible(true);
+        
+    }//GEN-LAST:event_exitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,15 +277,18 @@ public class EAdd extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable ETable;
     private javax.swing.JButton addbtn;
-    private javax.swing.JButton exit2;
+    private javax.swing.JButton exit;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField mailField;
     private javax.swing.JTextField nameField;
     private javax.swing.JTextField noField;
+    private javax.swing.JButton reset;
     // End of variables declaration//GEN-END:variables
 }

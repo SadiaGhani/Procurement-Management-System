@@ -5,6 +5,8 @@
  */
 package project;
 
+import java.util.*;
+
 /**
  *
  * @author DELL PC
@@ -12,11 +14,16 @@ package project;
 public class Menu extends javax.swing.JFrame {
 
     /**
+     *
+     */
+   
+    /**
      * Creates new form Menu
      */
     public Menu() {
         initComponents();
     }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -184,15 +191,19 @@ public class Menu extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addComponent(jLabel7)
                             .addComponent(jLabel8))
-                        .addGap(55, 55, 55)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(EAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(EUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(AddAcc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(UAcc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(EReceipt)
-                            .addComponent(CReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(EReceipt)
+                                    .addComponent(CReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(89, 89, 89)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(AddAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(UAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(EUpdate)
+                                    .addComponent(EAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(290, 290, 290)
                         .addComponent(Exit)))
@@ -205,11 +216,11 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(33, 33, 33)
                 .addComponent(jLabel2)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(EAdd)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(EAdd))
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(EUpdate)
                     .addComponent(jLabel4))
@@ -276,7 +287,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_CReceiptActionPerformed
 
     private void UAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UAccActionPerformed
-        UpdateItem Ui = new UpdateItem();
+       UpdateItem Ui = new UpdateItem();
        Ui.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_UAccActionPerformed
