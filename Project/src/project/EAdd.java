@@ -209,27 +209,29 @@ public class EAdd extends javax.swing.JFrame {
     }//GEN-LAST:event_nameFieldActionPerformed
 
     private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
-        String En = nameField.getText();
-        String Em = mailField.getText();
-        String Ec = noField.getText();
+        String n1 = nameField.getText();
+        String n2 = mailField.getText();
+        String n3 = noField.getText();
+        Employee e1 = new Employee();
+        boolean z1 = e1.setName(n1);
+        boolean z2 = e1.setEmail(n2);        
+        boolean z3 = e1.setContact(n3);
         
-       
-        
-        Employee ep = new Employee();
-        boolean flag1 = ep.setName(En);
-        boolean flag2 = ep.setEmail(Em);
-        boolean flag3 = ep.setContact(Ec);
-        if(flag1 == true && flag2 == true && flag3 == true )
+        z2 = true;
+        z3 = true;
+        if( z1 == true && z2 == true && z3 == true)
         {
-            list.add(ep);
+            list.add(e1);
             Project.empl = list;
             addDataToRow();
-            try
+            JOptionPane.showMessageDialog(null,"Data Added");
+            
+              try
         {
             FileWriter wr = new FileWriter("Employee.txt", true);
-            wr.write("Name: "+En+"\n");
-            wr.write("Email: "+Em+"\n");
-            wr.write("Contact No: "+Ec+"\n");
+            wr.write("Name: "+n1+"\n");
+            wr.write("Email: "+n2+"\n");
+            wr.write("Contact No: "+n3+"\n");
             wr.write(System.getProperty("line.separator"));
             wr.close();
             
@@ -239,12 +241,13 @@ public class EAdd extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Error in loading data to file");
         }
-            JOptionPane.showMessageDialog(null, "Employee Added Successfully");
+            
         }
         else
         {
-            JOptionPane.showMessageDialog(null, "Invalid");
+            JOptionPane.showMessageDialog(null,"Invalid Data");
         }
+        
         
         
     }//GEN-LAST:event_addbtnActionPerformed
