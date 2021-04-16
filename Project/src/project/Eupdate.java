@@ -214,13 +214,13 @@ public class Eupdate extends javax.swing.JFrame {
                   }
                   else
                   {
-                      JOptionPane.showMessageDialog(null,"Invalid");
+                      JOptionPane.showMessageDialog(null,"Invalid Input");
                   }
              }
          }
          if(f1 == false)
          {
-             JOptionPane.showMessageDialog(null,"Employee not found");
+             JOptionPane.showMessageDialog(null,"Employee not found or Incorrect Name");
          }
          
           

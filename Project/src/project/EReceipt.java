@@ -79,6 +79,11 @@ public class EReceipt extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jButton2.setText("Reset");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         REceipt.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         REceipt.setText("Generate Receipt");
@@ -223,11 +228,11 @@ public class EReceipt extends javax.swing.JFrame {
              FileWriter r = new FileWriter("Receipts.txt", true);
             
              r.write("Issuance Date:   " +Date+"\n\n");
-             r.write("Employee Name:   " +f1+"\n");
-             r.write("Employee Contact:   " +f2+"\n");
-             r.write("Item Name:   " +f3+"\n");
-             r.write("Item Quantity:   " +f4+"\n");
-             r.write("Manager Name:   " +f5+"\n\n\n");
+             r.write("Employee Name:   " +R.REname+"\n");
+             r.write("Employee Contact:   " +R.REcontact+"\n");
+             r.write("Item Name:   " +R.RAname+"\n");
+             r.write("Item Quantity:   " +R.RAquan+"\n");
+             r.write("Manager Name:   " +R.Mname+"\n\n\n");
              r.write("Employee Signature:                             Manager Signature:   \n\n\n");
              r.write(System.getProperty("line.separator"));
              r.close();
@@ -239,6 +244,16 @@ public class EReceipt extends javax.swing.JFrame {
          
         
     }//GEN-LAST:event_REceiptActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "All data in fields will be clear");
+        empName.setText(null);
+        empCont.setText(null);
+        itName.setText(null);
+        itQuan.setText(null);
+        mangName.setText(null);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

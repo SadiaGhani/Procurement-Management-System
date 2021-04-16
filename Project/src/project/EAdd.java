@@ -212,13 +212,12 @@ public class EAdd extends javax.swing.JFrame {
         String n1 = nameField.getText();
         String n2 = mailField.getText();
         String n3 = noField.getText();
-        Employee e1 = new Employee();
+        Employee e1 = new Employee();     
+        
         boolean z1 = e1.setName(n1);
         boolean z2 = e1.setEmail(n2);        
         boolean z3 = e1.setContact(n3);
-        
-        z2 = true;
-        z3 = true;
+      
         if( z1 == true && z2 == true && z3 == true)
         {
             list.add(e1);
@@ -254,9 +253,9 @@ public class EAdd extends javax.swing.JFrame {
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
      JOptionPane.showMessageDialog(null,"All the data will be clear");
-        nameField.setText(" ");
-        mailField.setText(" ");
-        noField.setText(" ");
+        nameField.setText(null);
+        mailField.setText(null);
+        noField.setText(null);
         
         
        

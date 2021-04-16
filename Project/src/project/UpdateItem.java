@@ -22,6 +22,7 @@ public class UpdateItem extends javax.swing.JFrame {
      */
     public UpdateItem() {
         initComponents();
+        
     }
      public void addDataToRow()
     {
@@ -166,6 +167,11 @@ public class UpdateItem extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jButton3.setText("Reset");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -224,6 +230,10 @@ public class UpdateItem extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Data Updated");
                    addDataToRow();
             }
+            else
+            {
+                JOptionPane.showMessageDialog(null,"Item is not found or Name is Incorrect");
+            }
         }
         
     }//GEN-LAST:event_updatethingsActionPerformed
@@ -233,6 +243,14 @@ public class UpdateItem extends javax.swing.JFrame {
         m.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        JOptionPane.showMessageDialog(null,"All the data will be clear");
+        Field1.setText(null);
+        Field2.setText(null);
+        Field3.setText(null);
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

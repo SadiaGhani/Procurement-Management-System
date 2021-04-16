@@ -197,7 +197,7 @@ public class AddItem extends javax.swing.JFrame {
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
          JOptionPane.showMessageDialog(null,"All the data will be clear!!");
-         nFieldA.setText(" ");
+         nFieldA.setText(null);
          QuanField.setText("");
          DOI.setCalendar(null);
        
