@@ -1,0 +1,8 @@
+Name Item: Pen
+Quantity: 7
+Issuance Date: 16/04/2021
+
+Name Item:  Laptop
+Quantity: 1
+Issuance Date: 16/04/2021
+

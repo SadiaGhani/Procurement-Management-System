@@ -5,6 +5,7 @@
  */
 package project;
 
+import java.io.FileWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -63,6 +64,7 @@ public class AddItem extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         ATable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Add Accessories");
@@ -148,6 +150,8 @@ public class AddItem extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setText("Click on the Add button to add Item");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -162,10 +166,13 @@ public class AddItem extends javax.swing.JFrame {
                         .addGap(124, 124, 124)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
+                        .addGap(24, 24, 24)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(34, 34, 34)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel5)))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -175,7 +182,9 @@ public class AddItem extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(reset)
                     .addComponent(AdAcc)
@@ -188,8 +197,8 @@ public class AddItem extends javax.swing.JFrame {
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
          JOptionPane.showMessageDialog(null,"All the data will be clear!!");
-        nFieldA.setText(" ");
-        QuanField.setText(" ");
+         nFieldA.setText(" ");
+         QuanField.setText("");
          DOI.setCalendar(null);
        
     }//GEN-LAST:event_resetActionPerformed
@@ -205,6 +214,21 @@ public class AddItem extends javax.swing.JFrame {
         Accessories access = new Accessories(In, Iq, Date);
         list2.add(access);
         addDataToRow();
+         try
+        {
+            FileWriter wr = new FileWriter("Accessories.txt", true);
+            wr.write("Name Item: "+In+"\n");
+            wr.write("Quantity: "+Iq+"\n");
+            wr.write("Issuance Date: "+Date+"\n");
+            wr.write(System.getProperty("line.separator"));
+            wr.close();
+            
+            
+        }
+        catch(Exception x)
+        {
+            JOptionPane.showMessageDialog(null, "Error in loading data to file");
+        }
         
        
     }//GEN-LAST:event_AdAccActionPerformed
@@ -260,6 +284,7 @@ public class AddItem extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nFieldA;

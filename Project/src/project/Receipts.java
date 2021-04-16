@@ -14,7 +14,13 @@ import java.text.SimpleDateFormat;
  * @author DELL PC
  */
 public class Receipts {
+    public String REname;
+    public String REcontact;
+    public String RAname;
+    public String RAquan;
+    public String Mname;
     
+   
     
     
 }
